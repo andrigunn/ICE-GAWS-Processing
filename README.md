@@ -32,9 +32,9 @@ Currently data is collected and stored in 3 levels.
 
 ## Variable names
 
-| Long name  | Short name | unit | Description |
-| ------------- | ------------- | ------------- |
-| Timestap  | time  |YYYY-MM-DD HH:MM:SS | Time of observation |
+| Long name  | Short name | unit | Description  |
+| ---------- | ---------- | ---- | ------------ |
+| Timestap   | time       | YYYY-MM-DD HH:MM:SS | Time of observation |
 
 
 ## File naming conventions
