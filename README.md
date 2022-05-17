@@ -28,6 +28,15 @@ Currently data is collected and stored in 3 levels.
 
     [^2]:Van den Broeke, M., van As, D., Reijmer, C., and Wal, R.: Assessing and Improving the Quality of Unattended Radiation Observations in Antarctica, J. Atmos. Ocean. Tech., 21, 1417–1431, [https://doi.org/10.1175/1520-0426(2004)021%3C1417:AAITQO%3E2.0.CO;2](https://doi.org/10.1175/1520-0426(2004)021%3C1417:AAITQO%3E2.0.CO;2), 2004.
 
-    ## Filtering of data
+## Filtering of data
 
-    ## Variable names
+## Variable names
+
+| Long name  | Short name | unit | Description |
+| ------------- | ------------- | ------------- |
+| Timestap  | time  |YYYY-MM-DD HH:MM:SS | Time of observation |
+
+
+## File naming conventions
+
+- [Raw data] L0 is stored in the original naming format, i.e. *.dat files. In most cases a file named `VST_XX_MET.dat`, where XX is the station name, contains the L0 data used for further processing. In the L0 folder many auxilary files often exist, especially for older observations.   
