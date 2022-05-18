@@ -1,21 +1,20 @@
-# Icelandic Glacier Automatic Weather Station Network.
+# Icelandic Glacier Automatic Weather Station Network (ICE-GAWS).
 Contact info: Andri Gunnarsson at andrigun@lv.is and Finnur Pálsson at fp@hi.is
 
 Since 1994, a network of Automatic Weather Stations has been operated by the National Power Company in Iceland (www.lv.is) and Institute of Earth Sciencis at the University of Iceland (http://earthice.hi.is/) to monitor mass and energy balance of Icelandic glaciers. Generally the stations are deployed during the melting season (May to October) while some deplaoyments extend the full year. 
 
 Overview presentation of the project from IUGG in June 2019 can be found [here](https://github.com/andrigunn/ICE-GAWS-Processing/blob/main/GAWS_IUGG_andrigun_11072019.pdf)
 
+Overview map of the network:
 ![Overview map of the network](https://github.com/andrigunn/ICE-GAWS-Processing/blob/main/img/overview_data_locations.png)
 
+[Relevatn publications](# Relevant publications)
 
+Processing pipelines used to process the ICE-GAWS data from Level 0 through Level 3. The processing levels are described textually and graphically in the following sections. For data request please contact Andri Gunnarsson at andrigun@lv.is and Finnur Pálsson at fp@hi.is. 
 
-Processing pipelines used to process the ICE-GAWS data from Level 0 through Level 2. The processing levels are described textually and graphically in the following sections. Overview of the project can be found here [https://github.com/andrigunn/ICE-GAWS](https://github.com/andrigunn/ICE-GAWS)
+Many processes and data setup are adopted from the PROMICE-AWS-processing which we greatfully acknowledge [https://github.com/GEUS-Glaciology-and-Climate/PROMICE-AWS-processing](https://github.com/GEUS-Glaciology-and-Climate/PROMICE-AWS-processing). 
 
-For data request please contact Andri Gunnarsson at andrigun@lv.is and Finnur Pálsson at fp@hi.is. 
-
-Many processes and data setup are adopted from the PROMICE-AWS-processing [https://github.com/GEUS-Glaciology-and-Climate/PROMICE-AWS-processing](https://github.com/GEUS-Glaciology-and-Climate/PROMICE-AWS-processing). 
-
-## ICE-GAWS-Processing
+# ICE-GAWS-Processing overview
 
 Currently data is collected and stored in 3 levels.
 
@@ -58,13 +57,13 @@ Currently data is collected and stored in 3 levels.
 
 - [Raw data] L0 is stored in the original naming format, i.e. *.dat files. In most cases a file named `VST_XX_MET.dat`, where XX is the station name, contains the L0 data used for further processing. In the L0 folder many auxilary files often exist, especially for older observations.   
 
-# Meta data
+## Meta data
 
 ICE-GAWS-location.csv
 ICE-GAWS-file-overview.csv => 
 ICE-GAWS-location-summary.csv
 
-## Relevant publications
+# Relevant publications
 Various publications and research projects have benefited from the program, a few have been collected here: 
 
 Gunnarsson, A., Gardarsson, S. M., Pálsson, F., Jóhannesson, T., and Sveinsson, Ó. G. B.: Annual and inter-annual variability and trends of albedo of Icelandic glaciers, The Cryosphere, 15, 547–570, [https://doi.org/10.5194/tc-15-547-2021](https://doi.org/10.5194/tc-15-547-2021), 2021.
