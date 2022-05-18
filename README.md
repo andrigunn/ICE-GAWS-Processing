@@ -8,7 +8,7 @@ Overview presentation of the project from IUGG in June 2019 can be found [here](
 Overview map of the network:
 ![Overview map of the network](https://github.com/andrigunn/ICE-GAWS-Processing/blob/main/img/overview_data_locations.png)
 
-[Relevatn publications](# Relevant publications)
+[Relevant publications can be found here](# Relevant publications)
 
 Processing pipelines used to process the ICE-GAWS data from Level 0 through Level 3. The processing levels are described textually and graphically in the following sections. For data request please contact Andri Gunnarsson at andrigun@lv.is and Finnur Pálsson at fp@hi.is. 
 
