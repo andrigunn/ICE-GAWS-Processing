@@ -39,7 +39,7 @@ end
 %% Used to process older years
 % clear dirs
 % clc
-% dirs.L0.B13 = 'C:\Users\andrigun\Dropbox\Verkefni\ICE-GAWS-Processing\data\vatnajokull\vatnajokull_Bruarjokull_B13\L0\2021';
+ %dirs.L0.B13 = 'C:\Users\andrigun\Dropbox\Verkefni\ICE-GAWS-Processing\data\vatnajokull\vatnajokull_Bruarjokull_B13\L0\2018';
 % %C:\Users\andrigun\Dropbox\Verkefni\ICE-GAWS-Processing\data\vatnajokull\vatnajokull_Bruarjokull_B10\L0\2018
 % Make L1 data from L0 data
 site_name = fieldnames(dirs.L0);
