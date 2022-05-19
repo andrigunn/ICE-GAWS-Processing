@@ -28,11 +28,11 @@ Currently data is collected and stored in 3 levels.
     - `filterRemoveMaxMin` removes outliers in the data defined for each variable in `constants` file 
     - `removePeriods` removes periods manually reviwed containing various errors and calibration periods. 
 
-- [Data calculations] L02 reads the L01 and calulates derived products 
+- [Data calculations] L03 reads the L02 and calulates derived products 
     - `SurfaceTemperature` calculates surface temeprature from incoming and outgoing long wave radiation using the method described in Fausto et al. 2021 [^1]
     - `Albedo`calculates the "raw" surface albedo using the ratio between incoming and outgoing short wave radiation ranging from 0 to 1. Values smaller than 0 and larger than 1 are set to NaN.
     - `Albedo_acc`calculates the accumulated surface albedo using the ratio between incoming and outgoing short wave radiation  over a time window of 24 h centered around the moment of observation[^2].
-    - Data resampled to hourly mean values
+    - Data resampled to hourly, daily and montlhy mean values.
 
     [^1]: Fausto, R. S., van As, D., Mankoff, K. D., Vandecrux, B., Citterio, M., Ahlstrøm, A. P., Andersen, S. B., Colgan, W., Karlsson, N. B., Kjeldsen, K. K., Korsgaard, N. J., Larsen, S. H., Nielsen, S., Pedersen, A. Ø., Shields, C. L., Solgaard, A. M., and Box, J. E.: Programme for Monitoring of the Greenland Ice Sheet (PROMICE) automatic weather station data, Earth Syst. Sci. Data, 13, 3819–3845, [https://doi.org/10.5194/essd-13-3819-2021](https://doi.org/10.5194/essd-13-3819-2021), 2021.  
 
@@ -47,9 +47,18 @@ Currently data is collected and stored in 3 levels.
 | Timestap          | time         | YYYY-MM-DD HH:MM:SS    | Time of observation |
 | Windspeed         | f            | m/s                    | Windspeed observed at 3-5 m above ground level |
 | Wind direction    | d            | °                      | Wind direction observed at 3-5 m above ground level |
+| Relative humidity | rh           | %                      | Relative humidity wrt water/ice above/below freezing |
+| Specific humidity | sh           | g/kg                   | Calculated from relative humidity |
 | Air temperature   | t            | °C                     | Primary air temperature at ~2 m above ground level |
 | Air temperature   | t2           | °C                     | Secondary air temperature at ~2 m above ground level from RH sensor |
-
+| Surface Temperature                | ts    | °C           | Calculated from incoming and outgoing Longwave radiation|
+| Air Pressure      | p            | hPa                    | Barometric pressure in logger enclosure |
+| Incoming shortwave radiation       |  sw_in | W/m2         | Incoming shortwave radiation |
+| Outgoing shortwave radiation       |  sw_out| W/m2         | Outgoing shortwave radiation |
+| Incoming longwave radiation        |  lw_in | W/m2         | Incoming longwave radiation |
+| Outgoing longwave radiation        |  lw_in | W/m2         | Outgoing longwave radiation |
+| Distance to surface   | HS           | cm                     | Sonic ranger readings from plose drilled into ice/firn. Sensitivity to air temperature is removed|
+| Distance to surface   | HS2          | cm                     | Sonic ranger readings monted to quadpod. Sensitivity to air temperature is removed|
 
 
 
