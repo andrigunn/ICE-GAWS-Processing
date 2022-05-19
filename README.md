@@ -6,6 +6,8 @@ Since 1994, a network of Automatic Weather Stations has been operated by the Nat
 Overview presentation of the project from IUGG in June 2019 can be found [here](https://github.com/andrigunn/ICE-GAWS-Processing/blob/main/GAWS_IUGG_andrigun_11072019.pdf). Overview map of the network with data from 1994 to current date:
 ![Overview map of the network](https://github.com/andrigunn/ICE-GAWS-Processing/blob/main/img/overview_data_locations.png)
 
+Other relevant glacier information for Icelandic glaciers (mass balance, outlines, etc) can be found at [https://islenskirjoklar.is/](https://islenskirjoklar.is)
+
 Processing pipelines used to process the ICE-GAWS data from Level 0 through Level 3. The processing levels are described textually and graphically in the following sections. For data request please contact Andri Gunnarsson at andrigun@lv.is and Finnur Pálsson at fp@hi.is. 
 
 Many processes and data setup are adopted from the PROMICE-AWS-processing which we greatfully acknowledge [https://github.com/GEUS-Glaciology-and-Climate/PROMICE-AWS-processing](https://github.com/GEUS-Glaciology-and-Climate/PROMICE-AWS-processing). 
