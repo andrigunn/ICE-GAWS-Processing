@@ -67,10 +67,13 @@ Currently data is collected and stored in 3 levels.
 - [Raw data] L0 is stored in the original naming format, i.e. *.dat files. In most cases a file named `VST_XX_MET.dat`, where XX is the station name, contains the L0 data used for further processing. In the L0 folder many auxilary files often exist, especially for older observations.   
 
 ## Meta data
+Meta data with station locations and other relavant info is stored in files in the `meta` folder. 
 
-ICE-GAWS-location.csv
-ICE-GAWS-file-overview.csv => 
-ICE-GAWS-location-summary.csv
+`ICE-GAWS-location.csv` provides locations of sites annually with location and elevation info. 
+`ICE-GAWS-location-summary.csv` provides "average" information for each station, i.e. if the station has multiple years in operation average positions, elevation and number of years in operation is provided.
+
+`ICE-GAWS-file-overview.csv` has overview of all the L1 files in the database. The name of each file, main glacier where the station is positioned, outlet glacier and location info is provided. 
+
 
 # Relevant publications
 Various publications and research projects have benefited from the program, a few have been collected here: 
