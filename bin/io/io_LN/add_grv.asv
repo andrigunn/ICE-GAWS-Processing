@@ -1,0 +1,221 @@
+%% 2019
+%% Set up the Import Options and import the data
+datetime.setDefaultFormats('default','yyyy-MM-dd HH:mm:ss');
+opts = delimitedTextImportOptions("NumVariables", 16);
+
+% Specify range and delimiter
+opts.DataLines = [2, Inf];
+opts.Delimiter = [",", ";"];
+
+% Specify column names and types
+opts.VariableNames = ["year", "day", "time", "pa", "t", "rh", "hitkassi", "BA", "doy", "HS", "snj2", "snj3", "q1", "q2", "sw_in", "f"];
+opts.VariableTypes = ["double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double"];
+
+% Specify file level properties
+opts.ExtraColumnsRule = "ignore";
+opts.EmptyLineRule = "read";
+
+% Specify variable properties
+opts = setvaropts(opts, ["year", "day", "time", "pa", "t", "rh", "hitkassi", "BA", "doy", "HS", "snj2", "snj3", "q1", "q2", "sw_in", "f"], "ThousandsSeparator", ",");
+
+% Import the data
+tdata = readtable("C:\Users\andrigun\Dropbox\01-Projects\ICE-GAWS-Processing\data\vatnajokull\vatnajokull_Grimsvotn_Gv_vh\L0\2019\gvthr19a.dat", opts);
+tdata(33493,:) = [];
+% Clear temporary variables
+clear opts
+%
+t = datetime(datenum([tdata.year],1,tdata.day+(tdata.time)/24),'ConvertFrom','datenum');
+B = table2timetable(tdata,'RowTimes',t);
+%
+B = removevars(B, {'day','year','doy','time'});
+B = removevars(B, ["hitkassi","BA","snj2","snj3","q1","q2"]);
+
+uqy = unique(B.Time.Year);
+
+sitename = ['ICE-GAWS_Gv_L1_',num2str(uqy),'.csv'];
+fname = ['C:\Users\andrigun\Dropbox\01-Projects\ICE-GAWS-Processing\data\vatnajokull\vatnajokull_Grimsvotn_Gv_vh\L1\',sitename];
+writetimetable(B,fname,'Delimiter',',');
+
+% 2020
+% Set up the Import Options and import the data
+opts = delimitedTextImportOptions("NumVariables", 16);
+
+% Specify range and delimiter
+opts.DataLines = [1, Inf];
+opts.Delimiter = [",", ";"];
+
+% Specify column names and types
+opts.VariableNames = ["year", "day", "time", "pa", "t", "rh", "hitkassi", "BA", "doy", "HS", "snj2", "snj3", "q1", "q2", "sw_in", "f"];
+opts.VariableTypes = ["double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double"];
+
+% Specify file level properties
+opts.ExtraColumnsRule = "ignore";
+opts.EmptyLineRule = "read";
+
+% Specify variable properties
+opts = setvaropts(opts, ["year", "day", "time", "pa", "t", "rh", "hitkassi", "BA", "doy", "HS", "snj2", "snj3", "q1", "q2", "sw_in", "f"], "ThousandsSeparator", ",");
+
+% Import the data
+tdata = readtable("C:\Users\andrigun\Dropbox\01-Projects\ICE-GAWS-Processing\data\vatnajokull\vatnajokull_Grimsvotn_Gv_vh\L0\2020\gvthr20a.dat", opts);
+%tdata(33493,:) = [];
+%
+% Clear temporary variables
+clear opts
+%
+t = datetime(datenum([tdata.year],1,tdata.day+(tdata.time)/24),'ConvertFrom','datenum');
+B = table2timetable(tdata,'RowTimes',t);
+%
+B = removevars(B, {'day','year','doy','time'});
+B = removevars(B, ["hitkassi","BA","snj2","snj3","q1","q2"]);
+B(end,:) = [];
+
+uqy = unique(B.Time.Year);
+%
+sitename = ['ICE-GAWS_Gv_L1_',num2str(uqy),'.csv'];
+fname = ['C:\Users\andrigun\Dropbox\01-Projects\ICE-GAWS-Processing\data\vatnajokull\vatnajokull_Grimsvotn_Gv_vh\L1\',sitename];
+writetimetable(B,fname,'Delimiter',',');
+% 2021
+% Set up the Import Options and import the data
+opts = delimitedTextImportOptions("NumVariables", 16);
+
+% Specify range and delimiter
+opts.DataLines = [1, Inf];
+opts.Delimiter = " ";
+
+% Specify column names and types
+opts.VariableNames = ["year", "day", "time", "pa", "t", "rh", "hitkassi", "BA", "doy", "HS", "snj2", "snj3", "q1", "q2", "sw_in", "f"];
+opts.VariableTypes = ["double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double"];
+
+% Specify file level properties
+opts.ExtraColumnsRule = "ignore";
+opts.EmptyLineRule = "read";
+opts.ConsecutiveDelimitersRule = "join";
+opts.LeadingDelimitersRule = "ignore";
+
+% Import the data
+tdata = readtable("C:\Users\andrigun\Dropbox\01-Projects\ICE-GAWS-Processing\data\vatnajokull\vatnajokull_Grimsvotn_Gv_vh\L0\2021\gvthr21a.dat", opts);
+% Clear temporary variables
+clear opts
+t = datetime(datenum([tdata.year],1,tdata.day+(tdata.time)/24),'ConvertFrom','datenum');
+B = table2timetable(tdata,'RowTimes',t);
+%
+B = removevars(B, {'day','year','doy','time'});
+B = removevars(B, ["hitkassi","BA","snj2","snj3","q1","q2"]);
+B(1,:) = [];
+B(end,:) = [];
+uqy = unique(B.Time.Year);
+
+sitename = ['ICE-GAWS_Gv_L1_',num2str(uqy),'.csv'];
+fname = ['C:\Users\andrigun\Dropbox\01-Projects\ICE-GAWS-Processing\data\vatnajokull\vatnajokull_Grimsvotn_Gv_vh\L1\',sitename];
+writetimetable(B,fname,'Delimiter',',');
+
+%% 2022
+% Set up the Import Options and import the data
+opts = delimitedTextImportOptions("NumVariables", 16);
+
+% Specify range and delimiter
+opts.DataLines = [1, Inf];
+opts.Delimiter = " ";
+
+% Specify column names and types
+opts.VariableNames = ["year", "day", "time", "pa", "t", "rh", "hitkassi", "BA", "doy", "HS", "snj2", "snj3", "q1", "q2", "sw_in", "f"];
+opts.VariableTypes = ["double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double"];
+
+% Specify file level properties
+opts.ExtraColumnsRule = "ignore";
+opts.EmptyLineRule = "read";
+opts.ConsecutiveDelimitersRule = "join";
+opts.LeadingDelimitersRule = "ignore";
+
+% Import the data
+tdata = readtable("C:\Users\andrigun\Dropbox\01-Projects\ICE-GAWS-Data\data\vatnajokull\vatnajokull_Grimsvotn_Gv\L0\2022\gvthr22a.dat", opts);
+% Clear temporary variables
+clear opts
+t = datetime(datenum([tdata.year],1,tdata.day+(tdata.time)/24),'ConvertFrom','datenum');
+B = table2timetable(tdata,'RowTimes',t);
+%
+B = removevars(B, {'day','year','doy','time'});
+B = removevars(B, ["hitkassi","BA","snj2","snj3","q1","q2"]);
+
+B(end,:) = [];
+% auka tímastimpill sem er 2024 fyrir árið 
+ix = find([B.Time.Year==2024]);
+B.Time.Year(ix)=2022;
+
+uqy = unique(B.Time.Year);
+
+sitename = ['ICE-GAWS_Gv_L1_',num2str(uqy),'.csv'];
+fname = ['C:\Users\andrigun\Dropbox\01-Projects\ICE-GAWS-Data\data\vatnajokull\vatnajokull_Grimsvotn_Gv\L1\',sitename];
+writetimetable(B,fname,'Delimiter',',');
+
+%%  2023
+datetime.setDefaultFormats('default','yyyy-MM-dd HH:mm:ss');
+
+opts = delimitedTextImportOptions("NumVariables", 13);
+
+% Specify range and delimiter
+opts.DataLines = [1, Inf];
+opts.Delimiter = ",";
+
+% Specify column names and types
+opts.VariableNames = ["timi", "Year", "day", "hhhh", "t", "rh", "ps", "sw_in", "ws", "tbox", "Volt", "HS", "q1"];
+opts.VariableTypes = ["double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double"];
+
+% Specify file level properties
+opts.ExtraColumnsRule = "ignore";
+opts.EmptyLineRule = "read";
+
+% Specify variable properties
+opts = setvaropts(opts, ["timi", "Year", "day", "hhhh", "t", "rh", "ps", "sw_in", "ws", "tbox", "Volt", "HS", "q1"], "ThousandsSeparator", ",");
+
+% Import the data
+tdata = readtable("C:\Users\andrigun\Dropbox\01-Projects\ICE-GAWS-Data\data\vatnajokull\vatnajokull_Grimsvotn_Gv\L0\2023\GvTh2023.dat", opts);
+
+t = datetime(datenum([tdata.Year],1,tdata.day+(tdata.hhhh)/24),'ConvertFrom','datenum');
+B = table2timetable(tdata,'RowTimes',t);
+B(1,:) = [];
+ B = removevars(B, ["timi","Year","day","hhhh","tbox","Volt","q1"]);
+
+uqy = unique(B.Time.Year);
+sitename = ['ICE-GAWS_Gv_L1_',num2str(uqy),'.csv'];
+fname = ['C:\Users\andrigun\Dropbox\01-Projects\ICE-GAWS-Data\data\vatnajokull\vatnajokull_Grimsvotn_Gv\L1\',sitename];
+writetimetable(B,fname,'Delimiter',',');
+%%  2024
+datetime.setDefaultFormats('default','yyyy-MM-dd HH:mm:ss');
+
+opts = delimitedTextImportOptions("NumVariables", 13);
+
+% Specify range and delimiter
+opts.DataLines = [1, Inf];
+opts.Delimiter = ",";
+
+                       %ar,  dagnúmer,klst,lofvægi-600,útihiti,raki,tækjahiti,Spenna,dagur,snjóhæð,ónotað,ónotað,ónotað,ónotað,solg-inn,vs
+% Specify column names and types
+opts.VariableNames = ["Year", "day", "hhhh", "ps", "t", "rh", "t_campbell", "volt", "day", "HS", "unused1", "unused2", "unused3", "unused4", "sw_in","f"];
+opts.VariableTypes = ["double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double"];
+
+% Specify file level properties
+opts.ExtraColumnsRule = "ignore";
+opts.EmptyLineRule = "read";
+
+% Specify variable properties
+opts = setvaropts(opts, ["Year", "day", "hhhh", "ps", "t", "rh", "t_campbell", "volt", "day", "HS", "unused1", "unused2", "unused3", "unused4", "sw_in","f"], "ThousandsSeparator", ",");
+
+% Import the data
+tdata = readtable("C:\Users\andrigun\Dropbox\01-Projects\ICE-GAWS-Data\data\vatnajokull\vatnajokull_Grimsvotn_Gv\L0\2024\gvthr24a.dat", opts);
+%%
+t = datetime(datenum([tdata.Year],1,tdata.day+(tdata.hhhh)/24),'ConvertFrom','datenum');
+B = table2timetable(tdata,'RowTimes',t);
+B(1,:) = [];
+ix = find(B.t)
+ B = removevars(B, ["Year","day","hhhh","t_campbell","volt","day_1","unused1","unused2","unused3","unused4"]);
+
+%%
+
+uqy = unique(B.Time.Year);
+sitename = ['ICE-GAWS_Gv_L1_',num2str(uqy),'.csv'];
+fname = ['C:\Users\andrigun\Dropbox\01-Projects\ICE-GAWS-Data\data\vatnajokull\vatnajokull_Grimsvotn_Gv\L1\',sitename];
+writetimetable(B,fname,'Delimiter',',');
+
+
+

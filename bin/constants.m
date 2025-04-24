@@ -1,9 +1,10 @@
+function c = constants()
 % ICE-GAWS 
 % Constant table
 
 %% Filters for max and min removal 
-c.t_max = 25;
-c.t_min = -25;
+c.t_max = 15;
+c.t_min = -30;
 
 c.f_max = 50;
 c.f_min = 0;
@@ -12,7 +13,10 @@ c.d_max = 360;
 c.d_min = 0;
 
 c.rh_max = 100;
-c.rh_min = 40;
+c.rh_min = 25;
+
+c.ps_max = 1150;
+c.ps_min = 750;
 
 c.sw_in_max = 1250;
 c.sw_in_min = 0;
@@ -20,32 +24,35 @@ c.sw_in_min = 0;
 c.sw_out_max = 1250;
 c.sw_out_min = 0;
 
-c.lw_out_max = 500;
-c.lw_out_min = 50;
+c.lw_out_max = 330;
+c.lw_out_min = 220;
+
+c.lw_in_max = 360;
+c.lw_in_min = 150;
 
 c.Ts_max = 0;
-c.TS_min = -80;
+c.Ts_min = -80;
 
 %% Constants for calculatios
 c.emissivity_ice = 0.97;
 c.es        = 0.622;    % 
-c.es_0      = 6.1071    % saturation vapour pressure at the melting point (hPa);
-c.es_100    = 1013.246  % saturation vapour pressure at steam point temperature (hPa);
-c.em        = 0.98      % longwave surface emissivity;
+c.es_0      = 6.1071;    % saturation vapour pressure at the melting point (hPa);
+c.es_100    = 1013.246;  % saturation vapour pressure at steam point temperature (hPa);
+c.em        = 0.98;      % longwave surface emissivity;
 c.RH_min    = 20;       %
 c.WS_lim    = 1;        % 
 
 c.T_0 = 273.15; %melting point temperature (K);
 c.T_100 = 373.15; %steam point temperature (K);
-c.smallno = 1.00E-12	 % Small number for layer calculations   
+c.smallno = 1.00E-12;	 % Small number for layer calculations   
 
 c.z0_ice = 0.0032; %surface roughness length for ice (m) as in Lefebvre et al. 2003;
 c.z0_fresh_snow = 0.00012; %surface roughness length for snow (m) as in Lefebvre et al. 2003;
 c.z0_old_snow = 0.0013; %surface roughness length for snow (m) as in Lefebvre et al. 2003;
-c.g = 9.82 %gravitational constant (at sea level). 80 N -> 9.83, 60 N -> 9.82;
+c.g = 9.82; %gravitational constant (at sea level). 80 N -> 9.83, 60 N -> 9.82;
 
 c.R_d = 287.05; % gas constant of dry air;
-c.c_pd = 1005 %specific heat of dry air (J/kg/K);
+c.c_pd = 1005; %specific heat of dry air (J/kg/K);
 c.kappa = 0.4; %Von Karman constant (0.35-0.42);
 
 c.ch1 = [1.25;0.149;0.317]; %used in calculating roughness length for heat z_h over smooth surfaces (Andreas 1987)
@@ -56,7 +63,7 @@ c.cq2 = [0;-0.628;-0.512];
 c.cq3 = [0;0;-0.18];
 
 c.rho_water = 999.8395; %density of water at the melting point (kg/m3);;
-c.gamma=16 ;%flux profile correction (Paulson & Dyer);
+c.gamma=16; %flux profile correction (Paulson & Dyer);
 
 c.iter_max_flux = 20;
 

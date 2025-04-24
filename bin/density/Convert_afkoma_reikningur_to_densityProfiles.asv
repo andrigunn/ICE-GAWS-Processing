@@ -1,0 +1,207 @@
+%Convert_afkoma_reikningur_to_densityProfiles
+% if ispc
+%     d = dir('C:\Users\andrigun\Dropbox\01-Projects\ICE-GAWS-Data\data_aux\raw_density_files\*.xls')
+% elseif ismac
+%     d = dir('/Users/andrigun/Dropbox/01-Projects/ICE-GAWS-Data/data_aux/raw_density_files/*.xls')
+% end
+
+d = dir([rootdir,filesep,'data_aux',filesep,'raw_density_files',filesep,'*.xls'])
+
+%%
+%figure, hold on
+for ii = 5%:length(d)
+    
+    filename = [d(ii).folder,filesep,d(ii).name];
+    C0 = strsplit(d(ii).name,'.');
+    C1 = strsplit(string(C0(1)),'-');
+    year_from_file = str2num(C1(end));
+    
+    [status,sheets] = xlsfinfo(filename);
+    
+    sites_to_process= [{'B13'};{'b13'}]
+    
+    ir = contains(sheets,sites_to_process);
+    sheets = sheets(ir);
+    
+    disp(['Reading file ',filename])
+    
+    for i = 1:length(sheets)
+    
+        sheetName = sheets(i);
+        disp(['Reading sheet ',char(sheetName)])
+
+        density = importfile(filename, string(sheetName));
+        
+        if density(1,4) == string('skip')   
+            continue 
+        else
+        end
+        
+        % Meta data
+        site = density(1,1);
+        % Date of observations
+        date = string(density(1,2));
+        c = split(date,'.');
+
+        % Check if dates are dd.mm and year in seperate column
+        % OR
+        % as dd-mm-yyyy
+        
+        sx = size(c);
+
+        if sx(1) > 1
+
+            day = double(c(1));
+            year = str2num(string(density(1,3)));
+
+            if isempty(year) == 1
+                year = year_from_file;
+            else
+            end
+
+            month = c(2);
+
+            switch month
+                case {'apr','Apr','Apríl','apríl','APR','april'}
+                    Month = 04;
+
+                case {'mai','Maí','Mai','maí','may','May',' mai','mai ',' Maí',' maí'}
+                    Month = 05;
+
+                case {'jun','jún','Jun','Jún','júní','Júní'}
+                    Month = 06;
+                otherwise
+                    error('Cant find month')
+            end
+
+            if isempty(year)|isempty(Month)|isempty(day) == 1
+                error(['Date info missing for file:',])
+            else
+            end
+            Date = datetime(year,Month,day);
+        
+        else
+            Date = datestr(c,'dd-MM-yyyy')
+        end
+
+        % Make data
+        % Make depth vector
+        l = density(3:end,1);
+        ie = find(cellfun(@isempty,l));
+        depth = double(string(l(1:ie-1)));
+        % Make dl vector
+        dl = density(3:end,2);
+        ie = find(cellfun(@isempty,dl));
+        dDepth = double(string(dl(1:ie-1)));
+        % Make mass vector
+        m = density(3:end,4);
+        ie = find(cellfun(@isempty,m));
+        mass = double(string(m(1:ie-1)));
+        % Make volume vector
+        v = density(3:end,5);
+        ie = find(cellfun(@isempty,v));
+        volume = double(string(v(1:ie-1)));
+
+        % Data checks
+        if isempty(volume)|isempty(mass)|isempty(depth) == 1
+            disp(['SKIPPING FILE DUE TO ERROR'])
+            continue
+        else
+        end
+
+        % Calculate density
+        rho = mass./volume;
+        %
+        [ix iy] = find(strcmp(density, 'bw='));
+        bw = str2num(string(density(ix,iy+1)))/100; % í mH20
+        rho_mean = sum(mass)./sum(volume);
+
+        % Make data table
+        Density = table();
+        Density.depth = depth/100;
+        Density.volume = volume;
+        Density.rho = rho*1000;
+        
+        Density.Properties.VariableUnits = {'m','cm3',' kg/m3'};
+        
+        disp(['Found info for site: ', char(site)])
+        disp(['               Date: ', char(Date)])
+        disp(['                SWE: ', num2str(bw),' mH20'])
+        disp(Density)
+
+        Filename = [rootdir,'data_aux',filesep,'Initial States',...
+            filesep,'density',filesep,char(upper(site)),...
+            '_',datestr(Date,'yyyy_mm_dd'),'_rho.dat']
+
+
+        writetable(Density,Filename,'WriteVariableNames',true,'Delimiter',',')
+
+        %disp(['File writtent to: ', char(Filename)])
+         
+    end
+        
+end
+
+function Laafkoma1 = importfile(workbookFile, sheetName, dataLines)
+
+%IMPORTFILE Import data from a spreadsheet
+%  LAAFKOMA1 = IMPORTFILE(FILE) reads data from the first worksheet in
+%  the Microsoft Excel spreadsheet file named FILE.  Returns the data as
+%  a cell array.
+%
+%  LAAFKOMA1 = IMPORTFILE(FILE, SHEET) reads from the specified
+%  worksheet.
+%
+%  LAAFKOMA1 = IMPORTFILE(FILE, SHEET, DATALINES) reads from the
+%  specified worksheet for the specified row interval(s). Specify
+%  DATALINES as a positive scalar integer or a N-by-2 array of positive
+%  scalar integers for dis-contiguous row intervals.
+%
+%  Example:
+%  Laafkoma1 = importfile("C:\Users\andrigun\Dropbox\01-Projects\ICE-GAWS-Data\dev\La-afkoma2013.xls", "L01-gamli", [1, Inf]);
+%
+%  See also READTABLE.
+%
+% Auto-generated by MATLAB on 2023-06-29 12:30:35
+
+%% Input handling
+
+% If no sheet is specified, read first sheet
+if nargin == 1 || isempty(sheetName)
+    sheetName = 1;
+end
+
+% If row start and end points are not specified, define defaults
+if nargin <= 2
+    dataLines = [1, Inf];
+end
+
+%% Set up the Import Options and import the data
+opts = spreadsheetImportOptions("NumVariables", 6);
+
+% Specify sheet and range
+opts.Sheet = sheetName;
+opts.DataRange = dataLines(1, :);
+
+% Specify column names and types
+opts.VariableNames = ["l", "dl", "phi", "m", "v", "VarName6"];
+opts.VariableTypes = ["char", "char", "char", "char", "char", "char"];
+
+% Specify variable properties
+opts = setvaropts(opts, ["l", "dl", "phi", "m", "v", "VarName6"], "WhitespaceRule", "preserve");
+opts = setvaropts(opts, ["l", "dl", "phi", "m", "v", "VarName6"], "EmptyFieldRule", "auto");
+
+% Import the data
+Laafkoma1 = readtable(workbookFile, opts, "UseExcel", false);
+
+for idx = 2:size(dataLines, 1)
+    opts.DataRange = dataLines(idx, :);
+    tb = readtable(workbookFile, opts, "UseExcel", false);
+    Laafkoma1 = [Laafkoma1; tb]; %#ok<AGROW>
+end
+
+%% Convert to output type
+Laafkoma1 = table2cell(Laafkoma1);
+numIdx = cellfun(@(x) ~isnan(str2double(x)), Laafkoma1);
+Laafkoma1(numIdx) = cellfun(@(x) {str2double(x)}, Laafkoma1(numIdx));
+end

@@ -1,0 +1,4 @@
+"TOA5","VST_Bruarjokull_B13"," "," "," "," "," ","MET"
+"TIMESTAMP","RECORD","volt","f","f_v","d","dsdev","fsdev","t","t2","rh","ps","sw_in","sw_out","lw_in","lw_out","RS","RL","RN","HS","HS2"
+"TS","RN","V","m/s","m/s","Deg","Deg","m/s","C","C","%","mBar","W/m^2","W/m^2","W/m^2","W/m^2","W/m^2","W/m^2","W/m^2","cm",""
+"","","Smp:BattVolt","WVc:WSpeed","WVc:Wspeed_vector","WVc:WDir","WVc:WDir_StdDev","Std:WSpeed_StdDev","Smp:AT","Smp:AT_Backup","Smp:RH","Smp:BP","Avg:sw_in","Avg:sw_out","Avg:lw_in","Avg:lw_out","Avg:RS","Avg:RL","Avg:RN","Smp:HS","Smp:HS2"

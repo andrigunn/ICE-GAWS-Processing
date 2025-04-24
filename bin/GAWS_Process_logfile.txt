@@ -1,0 +1,20 @@
+=========================================================================
+Running ICE_GAWS_Processing_master at 28.09.2023 13:11:38
+=========================================================================
+Not running OperationalDataUpdate at 28.09.2023 13:11:38
+Unrecognized function or variable 'rootdir'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ICE_GAWS_Processing_master', '/Users/andrigun/Dropbox/04-Repos/ICE-GAWS-Processing/bin/ICE_GAWS_Processing_master.m', 56)" style="font-weight:bold">ICE_GAWS_Processing_master</a> (<a href="matlab: opentoline('/Users/andrigun/Dropbox/04-Repos/ICE-GAWS-Processing/bin/ICE_GAWS_Processing_master.m',56,0)">line 56</a>)
+L1_files =
+fmakeL1FileStructure(rootdir,process_years_from,process_years_to,station_filter);
+
+pwd
+
+ans =
+
+    '/Users/andrigun/Dropbox/04-Repos/ICE-GAWS-Processing/bin'
+
+<a href="matlab: opentoline('/Users/andrigun/Dropbox/04-Repos/ICE-GAWS-Processing/bin/ICE_GAWS_Processing_master.m',40,70)">File: ICE_GAWS_Processing_master.m Line: 40 Column: 70</a>
+Invalid expression. When calling a function or indexing a variable, use
+parentheses. Otherwise, check for mismatched delimiters.
+

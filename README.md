@@ -20,7 +20,7 @@ Currently data is collected and stored in 3 levels.
 
 - [Raw data] L0 is the raw data collected by the logger and trasmitted via mobile connection or downloaded directly in areas where mobile coverage is not available as *.csv or *.dat files. These files are generally collected at hourly (older files) or 10 min intervals.
 
-- [Data conversion and structuring] L01 reads the raw data (L0-files) and removes auxilary variables (voltage etc) and structures the files to a common data format with systematic variable names. No data is removed. These files are at the original timestep (hourly (older files) or 10 min intervals). 
+- [Data conversion and structuring] L01 reads the raw data (L0-files) and removes auxilary variables (voltage etc) and structures the files to a common data format with systematic variable names. No data is removed. These files are at the original timestep (hourly (older files), most at 10 min intervals while few are logged at 30 min intervals). Irregular timesteps are removed and data is retimed to the native timestep (60, 30 og 10 min).  
 
 - [Data cleaning and filtering] L02 reads the L1-files and performs various data checks.
     - `isregular` checks if time is regular in table 
