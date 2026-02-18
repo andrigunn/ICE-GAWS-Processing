@@ -11,9 +11,9 @@ Gunnarsson, A., Pálsson, F., Björnsson, H., Guðmundsson, S., & Haraldsson, H.
 
 Processing pipelines and code used to process the ICE-GAWS **(Icelandic Glacier Automatic Weather Station Network)** data from raw collected data in the field (Level 0) through end-user data (Level 3). Many processes and data setup are adopted from the PROMICE-AWS-processing which we greatfully acknowledge [https://github.com/GEUS-Glaciology-and-Climate/PROMICE-AWS-processing](https://github.com/GEUS-Glaciology-and-Climate/PROMICE-AWS-processing). 
 
-The data is updated anually and is stored here. 
+Note: The data processing and structure has had a major overhaul. Please re-download the data 
 
-![ICE-GAWS Overview](ice-gaws-overview.png)
+The data is updated anually and is stored [here](https://data.lv.is/ICE-GAWS-v2/). 
 
 ## Data Processing overview
 The data processing workflow follows a structured pipeline from raw field data to fully processed climate products.
