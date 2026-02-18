@@ -1,7 +1,11 @@
 
 ### Icelandic Glaciers Automatic Weather Station Network (ICE-GAWS)
-
-Since 1994, a network of Automatic Weather Stations has been operated by the [National Power Company in Iceland](http://www.lv.is) and [Institute of Earth Sciencis at the University of Iceland](http://earthice.hi.is/) to monitor mass and energy balance of Icelandic glaciers. Generally the stations are deployed during the melting season (May to October) while some deplaoyments extend the full year.
+##Release notes: 
+#Updated: 18.02.2026:
+- The data processing and structure has had a major overhaul. Please re-download the data if you have data from older releases
+- All data for the year 2025 has been added
+- Gap-filling of data is based on the IceBox RCM. CARRA gap-filling is pending. 
+- The data is updated anually and is stored aat  [here](https://data.lv.is/ICE-GAWS-v2/). 
 
 Contact info: Andri Gunnarsson at andrigun@lv.is and Finnur Pálsson at fp@hi.is
 
@@ -9,11 +13,11 @@ Contact info: Andri Gunnarsson at andrigun@lv.is and Finnur Pálsson at fp@hi.is
 
 Gunnarsson, A., Pálsson, F., Björnsson, H., Guðmundsson, S., & Haraldsson, H. H. (2025). Surface climatology of glaciers in Iceland: Icelandic Glaciers Automatic Weather Station Network (ICE-GAWS). Journal of Geophysical Research: Atmospheres. [DOI](https://doi.org/10.1029/2024JD043216).
 
+# Overview
+
+Since 1994, a network of Automatic Weather Stations has been operated by the [National Power Company in Iceland](http://www.lv.is) and [Institute of Earth Sciencis at the University of Iceland](http://earthice.hi.is/) to monitor mass and energy balance of Icelandic glaciers. Generally the stations are deployed during the melting season (May to October) while some deplaoyments extend the full year.
+
 Processing pipelines and code used to process the ICE-GAWS **(Icelandic Glacier Automatic Weather Station Network)** data from raw collected data in the field (Level 0) through end-user data (Level 3). Many processes and data setup are adopted from the PROMICE-AWS-processing which we greatfully acknowledge [https://github.com/GEUS-Glaciology-and-Climate/PROMICE-AWS-processing](https://github.com/GEUS-Glaciology-and-Climate/PROMICE-AWS-processing). 
-
-Note: The data processing and structure has had a major overhaul. Please re-download the data 
-
-The data is updated anually and is stored [here](https://data.lv.is/ICE-GAWS-v2/). 
 
 ## Data Processing overview
 The data processing workflow follows a structured pipeline from raw field data to fully processed climate products.
