@@ -7,13 +7,12 @@
 - Gap-filling of data is based on the IceBox RCM. CARRA gap-filling is pending. 
 - The data is updated anually and is stored [here](https://data.lv.is/ICE-GAWS-v2/). 
 
+# Overview
 Contact info: Andri Gunnarsson at andrigun@lv.is and Finnur Pálsson at fp@hi.is
 
 *Please cite the following paper when using ICE-GAWS data. More details about the stations and data processing can be found there:*
 
-Gunnarsson, A., Pálsson, F., Björnsson, H., Guðmundsson, S., & Haraldsson, H. H. (2025). Surface climatology of glaciers in Iceland: Icelandic Glaciers Automatic Weather Station Network (ICE-GAWS). Journal of Geophysical Research: Atmospheres. [DOI](https://doi.org/10.1029/2024JD043216).
-
-# Overview
+*Gunnarsson, A., Pálsson, F., Björnsson, H., Guðmundsson, S., & Haraldsson, H. H. (2025). Surface climatology of glaciers in Iceland: Icelandic Glaciers Automatic Weather Station Network (ICE-GAWS). Journal of Geophysical Research: Atmospheres. [DOI](https://doi.org/10.1029/2024JD043216).
 
 Since 1994, a network of Automatic Weather Stations has been operated by the [National Power Company in Iceland](http://www.lv.is) and [Institute of Earth Sciencis at the University of Iceland](http://earthice.hi.is/) to monitor mass and energy balance of Icelandic glaciers. Generally the stations are deployed during the melting season (May to October) while some deplaoyments extend the full year.
 
