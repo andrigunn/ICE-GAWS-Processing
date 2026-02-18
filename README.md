@@ -1,11 +1,11 @@
 
-### Icelandic Glaciers Automatic Weather Station Network (ICE-GAWS)
-##Release notes: 
-#Updated: 18.02.2026:
+# Icelandic Glaciers Automatic Weather Station Network (ICE-GAWS)
+## Release notes: 
+### Updated: 18.02.2026:
 - The data processing and structure has had a major overhaul. Please re-download the data if you have data from older releases
 - All data for the year 2025 has been added
 - Gap-filling of data is based on the IceBox RCM. CARRA gap-filling is pending. 
-- The data is updated anually and is stored aat  [here](https://data.lv.is/ICE-GAWS-v2/). 
+- The data is updated anually and is stored [here](https://data.lv.is/ICE-GAWS-v2/). 
 
 Contact info: Andri Gunnarsson at andrigun@lv.is and Finnur Pálsson at fp@hi.is
 
