@@ -114,9 +114,9 @@ Albedo: Calculated as a 24-hour running integral[^1].
 
 Surface Temp: Derived from longwave radiation (emissivity = 0.97)[^2].
 
-    [^1]:Van den Broeke, M., van As, D., Reijmer, C., and Wal, R.: Assessing and Improving the Quality of Unattended Radiation Observations in Antarctica, J. Atmos. Ocean. Tech., 21, 1417–1431, [https://doi.org/10.1175/1520-0426(2004)021%3C1417:AAITQO%3E2.0.CO;2](https://doi.org/10.1175/1520-0426(2004)021%3C1417:AAITQO%3E2.0.CO;2), 2004.
+[^1]:Van den Broeke, M., van As, D., Reijmer, C., and Wal, R.: Assessing and Improving the Quality of Unattended Radiation Observations in Antarctica, J. Atmos. Ocean. Tech., 21, 1417–1431, [https://doi.org/10.1175/1520-0426(2004)021%3C1417:AAITQO%3E2.0.CO;2](https://doi.org/10.1175/1520-0426(2004)021%3C1417:AAITQO%3E2.0.CO;2), 2004.
 
-    [^2]: Fausto, R. S., van As, D., Mankoff, K. D., Vandecrux, B., Citterio, M., Ahlstrøm, A. P., Andersen, S. B., Colgan, W., Karlsson, N. B., Kjeldsen, K. K., Korsgaard, N. J., Larsen, S. H., Nielsen, S., Pedersen, A. Ø., Shields, C. L., Solgaard, A. M., and Box, J. E.: Programme for Monitoring of the Greenland Ice Sheet (PROMICE) automatic weather station data, Earth Syst. Sci. Data, 13, 3819–3845, [https://doi.org/10.5194/essd-13-3819-2021](https://doi.org/10.5194/essd-13-3819-2021), 2021.  
+[^2]: Fausto, R. S., van As, D., Mankoff, K. D., Vandecrux, B., Citterio, M., Ahlstrøm, A. P., Andersen, S. B., Colgan, W., Karlsson, N. B., Kjeldsen, K. K., Korsgaard, N. J., Larsen, S. H., Nielsen, S., Pedersen, A. Ø., Shields, C. L., Solgaard, A. M., and Box, J. E.: Programme for Monitoring of the Greenland Ice Sheet (PROMICE) automatic weather station data, Earth Syst. Sci. Data, 13, 3819–3845, [https://doi.org/10.5194/essd-13-3819-2021](https://doi.org/10.5194/essd-13-3819-2021), 2021.  
 
   
 
