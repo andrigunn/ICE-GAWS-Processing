@@ -1,25 +1,26 @@
 
 # Icelandic Glaciers Automatic Weather Station Network (ICE-GAWS)
+## Overview
+Since 1994, a network of Automatic Weather Stations has been operated by the [National Power Company in Iceland](http://www.lv.is) and [Institute of Earth Sciencis at the University of Iceland](http://earthice.hi.is/) to monitor mass and energy balance of Icelandic glaciers. Generally the stations are deployed during the melting season (May to October) while some deplaoyments extend the full year.
+
+![Overview of sites in the network.](img/overview.jpg)
+
+Contact info: Andri Gunnarsson at andrigun@lv.is and Finnur Pálsson at fp@hi.is
+
+*Please cite the following paper when using ICE-GAWS data. More details about the stations and data processing can be found there:*
+
+Gunnarsson, A., Pálsson, F., Björnsson, H., Guðmundsson, S., & Haraldsson, H. H. (2025). *Surface climatology of glaciers in Iceland: Icelandic Glaciers Automatic Weather Station Network (ICE-GAWS)*. Journal of Geophysical Research: Atmospheres, doi.org/10.1029/2024JD043216. [DOI](https://doi.org/10.1029/2024JD043216).
+
 ## Release notes: 
 ### Updated: 18.02.2026:
 - The data processing and structure has had a major overhaul. Please re-download the data if you have data from older releases
 - All data for the year 2025 has been added
 - Gap-filling of data is based on the IceBox RCM. CARRA gap-filling is pending. 
 - The data is updated anually and is stored [here](https://data.lv.is/ICE-GAWS-v2/). 
-
-# Overview
-Contact info: Andri Gunnarsson at andrigun@lv.is and Finnur Pálsson at fp@hi.is
-
-*Please cite the following paper when using ICE-GAWS data. More details about the stations and data processing can be found there:*
-
-*Gunnarsson, A., Pálsson, F., Björnsson, H., Guðmundsson, S., & Haraldsson, H. H. (2025). Surface climatology of glaciers in Iceland: Icelandic Glaciers Automatic Weather Station Network (ICE-GAWS). Journal of Geophysical Research: Atmospheres. [DOI](https://doi.org/10.1029/2024JD043216).
-
-Since 1994, a network of Automatic Weather Stations has been operated by the [National Power Company in Iceland](http://www.lv.is) and [Institute of Earth Sciencis at the University of Iceland](http://earthice.hi.is/) to monitor mass and energy balance of Icelandic glaciers. Generally the stations are deployed during the melting season (May to October) while some deplaoyments extend the full year.
-
-Processing pipelines and code used to process the ICE-GAWS **(Icelandic Glacier Automatic Weather Station Network)** data from raw collected data in the field (Level 0) through end-user data (Level 3). Many processes and data setup are adopted from the PROMICE-AWS-processing which we greatfully acknowledge [https://github.com/GEUS-Glaciology-and-Climate/PROMICE-AWS-processing](https://github.com/GEUS-Glaciology-and-Climate/PROMICE-AWS-processing). 
+- Aggregations are no longer calculated (daily, monthly, annual)
 
 ## Data Processing overview
-The data processing workflow follows a structured pipeline from raw field data to fully processed climate products.
+The data processing workflow follows a structured pipeline from raw field data to fully processed climate products. Processing pipelines and code used to process the ICE-GAWS **(Icelandic Glacier Automatic Weather Station Network)** data from raw collected data in the field (Level 0) through end-user data (Level 3). Many processes and data setup are adopted from the PROMICE-AWS-processing which we greatfully acknowledge [https://github.com/GEUS-Glaciology-and-Climate/PROMICE-AWS-processing](https://github.com/GEUS-Glaciology-and-Climate/PROMICE-AWS-processing). 
 
 ### Pre-Installation & Field Work:
 Sensors undergo open-field calibration and inter-comparison to ensure accuracy prior to field installation . Upon installation, functionality is verified in situ, and station coordinates/elevation are recorded via GNSS. Manual measurements (e.g., snow height) are taken for validation. 
@@ -49,7 +50,7 @@ The data directory `\ICE-GAWS-Data-v2\data` is organized hierarchically by glaci
 **Filename Convention:**
 - L1: `ICE-GAWS_[Station]_L1_[Year].csv` (e.g., `ICE-GAWS_Br01_L1_2023.csv`)
 - L2: `ICE-GAWS_[Station]_L2_[Year].csv` (e.g., `ICE-GAWS_Br01_L2_2023.csv`) 
-- L3: `ICE-GAWS_[Station]_L3_[Aggregation]_[Year].csv` (e.g., `ICE-GAWS_Br01_L3_daily_2023.csv`)
+- L3: `ICE-GAWS_[Station]_L3_[Gap-Filling-Product]_[Year].csv` (e.g., `ICE-GAWS_Br01_L3_ICEBOX_2023.csv`)
 
 **Auxiliary Data:**
 - `\ICE-GAWS-Data-v2\locations\` - Station coordinates and metadata
